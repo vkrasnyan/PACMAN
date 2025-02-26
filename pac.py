@@ -15,7 +15,12 @@ class Pac(pygame.sprite.Sprite):
         self.pac_speed = PLAYER_SPEED
         self.immune_time = 0
         self.immune = False
-        self.directions = {'left': (-PLAYER_SPEED, 0), 'right': (PLAYER_SPEED, 0), 'up': (0, -PLAYER_SPEED), 'down': (0, PLAYER_SPEED)}
+        self.directions = {
+            'left': (-PLAYER_SPEED, 0),
+            'right': (PLAYER_SPEED, 0),
+            'up': (0, -PLAYER_SPEED),
+            'down': (0, PLAYER_SPEED)
+        }
         self.keys = {'left': pygame.K_LEFT, 'right': pygame.K_RIGHT, 'up': pygame.K_UP, 'down': pygame.K_DOWN}
         self.direction = (0, 0)
         # статус
@@ -36,7 +41,7 @@ class Pac(pygame.sprite.Sprite):
         self.rect.y = self.abs_y
 
     def animate(self, pressed_key, walls_collide_list):
-        """Метод, обрабатывающий анимацию"""
+        """Метод, обрабатывающий движение персонажа"""
         self.walls_collide_list = walls_collide_list
 
         for key, key_value in self.keys.items():
